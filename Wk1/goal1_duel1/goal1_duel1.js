@@ -13,16 +13,23 @@
     var playerOneHealth= 100;
     var playerTwoHealth= 100;
     // variables for player damage
-    var playerOneDamage= 25;
-    var playerTwoDamage= 25;
+    var playerOneMaxDamage= 25;
+    var playerOneMinDamage= playerOneMaxDamage/2;
+    var playerTwoMaxDamage= 25;
+    var playerTwoMinDamage= playerTwoMaxDamage/2;
     // variable to store the round number;
     var round= 1;
 
 
     // fight() function to loop through rounds
     function fight(){
-
-
+        alert(playerOne+':'+playerOneHealth+'      Round '+round+'...FIGHT!!!      '+playerTwo+':'+playerTwoHealth);
+        for(var i=0;i<10;i++){
+            playerOneHealth= playerOneHealth-Math.floor(Math.random()*(playerTwoMaxDamage-playerTwoMinDamage+1))+playerTwoMinDamage;
+            playerTwoHealth= playerTwoHealth-Math.floor(Math.random()*(playerOneMaxDamage-playerOneMinDamage+1))+playerOneMinDamage;
+            console.log(playerOneHealth);
+            console.log(playerTwoHealth);
+        }
         winnerCheck();
         round++;
     };
