@@ -25,21 +25,37 @@
     function fight(){
         alert(playerOne+':'+playerOneHealth+'      Round '+round+'...FIGHT!!!      '+playerTwo+':'+playerTwoHealth);
         for(var i=0;i<10;i++){
-            playerOneHealth= playerOneHealth-Math.floor(Math.random()*(playerTwoMaxDamage-playerTwoMinDamage+1))+playerTwoMinDamage;
-            playerTwoHealth= playerTwoHealth-Math.floor(Math.random()*(playerOneMaxDamage-playerOneMinDamage+1))+playerOneMinDamage;
+            playerOneHealth= playerOneHealth-(Math.floor(Math.random()*(playerTwoMaxDamage-playerTwoMinDamage))+playerTwoMinDamage);
+            playerTwoHealth= playerTwoHealth-(Math.floor(Math.random()*(playerOneMaxDamage-playerOneMinDamage))+playerOneMinDamage);
             console.log(playerOneHealth);
             console.log(playerTwoHealth);
-        }
-        winnerCheck();
-        round++;
+            var winner= winnerCheck();
+            if(winner == 'no winner'){
+                round++;
+                alert(playerOne+':'+playerOneHealth+'      Round '+round+'...FIGHT!!!      '+playerTwo+':'+playerTwoHealth);
+            }
+            else{
+                alert(winner);
+                break;
+            };
+        };
     };
 
     // winnerCheck() function to determine if there is a winner
     function winnerCheck(){
-
+        var winner='no winner';
+        if(playerOneHealth<=0 && playerTwoHealth<=0){
+            winner= 'Tie!';
+        }
+        else if(playerOneHealth<=0){
+            winner= playerTwo+' wins!!!';
+        }
+        else if(playerTwoHealth<=0){
+            winner= playerOne+' wins!!!';
+        };
+        return winner;
     };
 
     fight();
-
 })();
 
