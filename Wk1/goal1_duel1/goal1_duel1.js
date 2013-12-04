@@ -25,8 +25,8 @@
     function fight(){
         alert(playerOne+':'+playerOneHealth+'      Round '+round+'...FIGHT!!!      '+playerTwo+':'+playerTwoHealth);
         for(var i=0;i<10;i++){
-            playerOneHealth= playerOneHealth-(Math.floor(Math.random()*(playerTwoMaxDamage-playerTwoMinDamage))+playerTwoMinDamage);
-            playerTwoHealth= playerTwoHealth-(Math.floor(Math.random()*(playerOneMaxDamage-playerOneMinDamage))+playerOneMinDamage);
+            playerOneHealth= playerOneHealth-(Math.floor(Math.random()*(playerTwoMaxDamage-playerTwoMinDamage+1))+playerTwoMinDamage);
+            playerTwoHealth= playerTwoHealth-(Math.floor(Math.random()*(playerOneMaxDamage-playerOneMinDamage+1))+playerOneMinDamage);
             console.log(playerOneHealth);
             console.log(playerTwoHealth);
             var winner= winnerCheck();
